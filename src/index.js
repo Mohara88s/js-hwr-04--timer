@@ -41,11 +41,15 @@ class CountdownTimer {
 
 const timer1 = {
     selector:'#timer-1',
-    targetDate:new Date('Jul 17, 2021'),
+    targetDate:new Date('Oct 14, 2053'),
+}
+const timer2 = {
+    selector:'#timer-2',
+    targetDate:new Date('Jun 1, 2021'),
 }
 
-
-
 const timer = new CountdownTimer(timer1)
+const timerTuVacations = new CountdownTimer(timer2)
 
 timer.start()
+timerTuVacations.start()
