@@ -11,6 +11,9 @@ class CountdownTimer {
             timerHours: document.querySelector(`${selector} span[data-value="hours"]`),
             timerMinutes: document.querySelector(`${selector} span[data-value="mins"]`),
             timerSeconds: document.querySelector(`${selector} span[data-value="secs"]`),
+            timerSecondsBefore: document.querySelector(`${selector} span[data-value="secs-before"]`),
+            timerSecondsAfter: document.querySelector(`${selector} span[data-value="secs-after"]`),
+
         };
     };
 
@@ -18,23 +21,28 @@ class CountdownTimer {
         setInterval(() => {
             const cowndownTime = this.targetDate - Date.now()  
             this.updateTimerFace(this.getTimeNormilize(cowndownTime))
-        }, 1000)
+        }, 3000)
     };
     getTimeNormilize(time) {
         const days = Math.floor(time / (1000 * 60 * 60 * 24))
         const hours = this.pad(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
         const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)))
         const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000))
-        return {days, hours, mins, secs}
+        const secsb = this.pad(secs)
+        const secsa = this.pad(secs - 1)
+
+        return {days, hours, mins, secs, secsb, secsa}
     };
     pad(value) {
         return String(value).padStart(2,'0')
     };
-    updateTimerFace({days, hours, mins, secs}) {
+    updateTimerFace({days, hours, mins, secs, secsb, secsa}) {
         this.refs.timerDays.textContent = days
         this.refs.timerHours.textContent = hours
         this.refs.timerMinutes.textContent = mins
         this.refs.timerSeconds.textContent = secs
+        this.refs.timerSecondsBefore.textContent = secsb
+        this.refs.timerSecondsAfter.textContent = secsa
     }
 
 }
@@ -43,13 +51,13 @@ const timer1 = {
     selector:'#timer-1',
     targetDate:new Date('Oct 14, 2053'),
 }
-const timer2 = {
-    selector:'#timer-2',
-    targetDate:new Date('Jun 1, 2021'),
-}
+// const timer2 = {
+//     selector:'#timer-2',
+//     targetDate:new Date('Jun 1, 2021'),
+// }
 
 const timer = new CountdownTimer(timer1)
-const timerTuVacations = new CountdownTimer(timer2)
+// const timerTuVacations = new CountdownTimer(timer2)
 
 timer.start()
-timerTuVacations.start()
+// timerTuVacations.start()
