@@ -1,1 +1,0 @@
-{"version":3,"sources":["sass/timer.scss"],"names":[],"mappings":"AAAA,OACE,aAEA,WACE","file":"src.70752a44.css","sourceRoot":"../src","sourcesContent":[".timer {\n  display: flex;\n\n  div {\n    margin-left: 10px;\n  }\n}\n"]}
