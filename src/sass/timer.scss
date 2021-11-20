@@ -1,5 +1,8 @@
 body {
-  background-color: rgb(199, 52, 52);
+  background-color: rgb(51, 2, 2);
+}
+h2, h3 {
+  color: #c4bdbd;
 }
 .timer {
   display: flex;
@@ -31,28 +34,7 @@ body {
   padding-left: 10px;
   text-align: center;
 }
-.value-active {
-  animation-name: rotateX;
-  transform: rotateX(-180deg);
-  animation-duration: 3000ms;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  transform-origin: center center;
-  // backface-visibility: hidden;
 
-  @keyframes rotateX {
-    0% {
-      transform: rotateX(180deg);
-    }
-
-    50% {
-      transform: rotateX(0deg);
-    }
-    100% {
-      transform: rotateX(-180deg);
-    }
-  }
-}
 
 .label {
   color: gray;
@@ -63,6 +45,4 @@ body {
   padding-left: 2px;
   padding-right: 2px;
 }
-h2 {
-  color: #c4bdbd;
-}
+
